@@ -4,11 +4,24 @@
   </ion-navbar>
 </ion-header>
 
+<!-- Content of the page-->
 <ion-content padding>
+   <!-- Create new List button-->
   <div class='newListButton'>
     <button ion-button icon-start color='secondary' (click)='newList()'>
       <ion-icon name='add'></ion-icon>
       New List
     </button>
   </div>
+
+<!-- List of Tasks, *ngFor loop. -->
+    <ion-card class='listCards' *ngFor='let lists of myLists; let i = index'>
+      <ion-card-header>
+        {{ lists.listName }} <span style='flex: 1 1;'></span>{{ lists.listCreatedDate }}
+      </ion-card-header>
+      <ion-card-content>
+        {{ lists.listDescription }}
+      </ion-card-content>
+    </ion-card>
+
 </ion-content>

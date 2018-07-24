@@ -9,7 +9,7 @@ import { Storage } from '@ionic/storage'
 export class ListProvider {
 
   constructor(public http: HttpClient, 
-              private _storeage: Storage) {  }
+              private _storage: Storage) {  }
 
   getListNames(){
     //Gets the names of the active lists currently stored
@@ -17,6 +17,12 @@ export class ListProvider {
 
   getListContent(listName:string){
     //Gets the content of the list specified in listName
+  }
+
+  getNextID(){
+    //returns the next ID for the named list
+    let nextNum:number = null
+    return nextNum
   }
 
   createNewList(listName:string, listContent:string){
