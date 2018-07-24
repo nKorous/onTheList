@@ -1,0 +1,8 @@
+{
+  "name": "onTheList",
+  "app_id": "4badae0d",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
