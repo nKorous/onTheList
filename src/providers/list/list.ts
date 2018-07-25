@@ -1,18 +1,32 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage'
 
 /*
   Service to interact with storing and getting lists from storage.
 */
 @Injectable()
-export class ListProvider {
+export class ListProvider implements OnInit {
+
+  loadedList = []
 
   constructor(public http: HttpClient, 
               private _storage: Storage) {  }
 
+    ngOnInit(){
+    /*** Just putting test data to make sure UI is good. */
+    let testTask = {
+      listName: 'Test List', 
+      listCreatedDate: '2018-07-24 15:48:00', 
+      listDescription: 'I put something here just to have something'
+    }
+      this.loadedList.push(testTask)
+      this.loadedList.push(testTask)
+    }
+
   getListNames(){
     //Gets the names of the active lists currently stored
+    return this.loadedList
   }
 
   getListContent(listName:string){

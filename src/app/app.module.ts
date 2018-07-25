@@ -13,6 +13,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ListProvider } from '../providers/list/list';
 import { FormsModule } from '../../node_modules/@angular/forms';
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { NewlistPage } from '../pages/newlist/newlist';
+
 
 @NgModule({
   declarations: [
@@ -20,11 +23,13 @@ import { FormsModule } from '../../node_modules/@angular/forms';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    NewlistPage,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
@@ -34,7 +39,8 @@ import { FormsModule } from '../../node_modules/@angular/forms';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    NewlistPage
   ],
   providers: [
     StatusBar,

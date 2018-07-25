@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
+import { ListProvider } from '../../providers/list/list';
+import { NewlistPage } from '../newlist/newlist';
+
 
 
 @Component({
@@ -8,35 +11,28 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage implements OnInit{
 
-  myLists = [] //Holds the lists with their name, created date, number of tasks, and quick description
+  myLists //Holds the lists with their name, created date, number of tasks, and quick description
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              private _listService: ListProvider,
+              private _modalCtrl: ModalController) {
 
-    /*** Just putting test data to make sure UI is good. */
-    let testTask = {
-      listName: 'Test List', 
-      listCreatedDate: '2018-07-24 15:48:00', 
-      listDescription: 'I put something here just to have something'
-    }
-
-    this.myLists.push(testTask)
-    this.myLists.push(testTask)
-    this.myLists.push(testTask)
-    this.myLists.push(testTask)
   }
 
   ngOnInit(){
-
+    this.getMyLists()
   }
 
   newList(){
-    //Actions for the new list
-    return
+    //Triggers modal from NewListPage with prompts for a new list
+    const modal = this._modalCtrl.create (NewlistPage)
+    modal.present()
+    
   }
 
   getMyLists(){
     //Get saves list names and put them in the myLists var
-    return
+    this.myLists = this._listService.getListNames()
   }
 
 }
